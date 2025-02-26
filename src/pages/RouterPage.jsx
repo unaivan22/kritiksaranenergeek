@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import Add from './Add'
 import Sambat from './Sambat'
+import NotFound from './NotFound'
 
 export default function RouterPage() {
   return (
@@ -13,7 +14,7 @@ export default function RouterPage() {
             <Route path='/add' element={<Add/>} />
             <Route path="/wall/:sambatUuid" element={<Sambat />} />
 
-            {/* <Route path='*' element={<NotFound/>} /> */}
+            <Route path='*' element={<NotFound/>} />
         </Routes>
      </Router>
   )

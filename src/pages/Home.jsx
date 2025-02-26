@@ -37,6 +37,11 @@ export default function Home() {
   return (
     <div className="bg-stone-50 min-h-screen">
       <div className='bg-[#0277FE] md:h-[360px] h-[430px]'>
+        <img className="absolute z-50 top-4 left-4 lg:w-[300px] w-[200px] lg:opacity-100 opacity-20" src="/left.svg" />
+        <img className="absolute z-50 top-4 right-4 lg:w-[300px] w-[200px] lg:opacity-100 opacity-20" src="/right.svg" />
+        <svg class="w-[80vw] hidden lg:block h-auto absolute left-1/2 transform -translate-x-1/2 top-12" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,20 Q100,-10 190,20" stroke="black" stroke-width="1" stroke-dasharray="5,5" fill="transparent"/>
+        </svg>
         <div className='grid md:h-[360px] h-[430px] place-items-center container'>
           <div className='flex flex-col gap-4 translate-y-[100px]'>
             <h1 className='text-4xl md:text-[3rem] md:leading-[3rem] font-semibold josefin-sans text-center text-white'>Curated list of kritik dan saran</h1>
@@ -51,7 +56,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container absolute pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
           {messages.map((msg) => (
             <Link to={`/wall/${msg.id}`} key={msg.id} target="_blank">
@@ -60,7 +65,7 @@ export default function Home() {
                   <CardTitle className="text-sm">To: {msg.recipient}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="line-clamp-[2] md:line-clamp-[3] 2xl:line-clamp-[4]">{msg.message}</p>
+                  <p className="line-clamp-[4] md:line-clamp-[3] 2xl:line-clamp-[4]">{msg.message}</p>
                 </CardContent>
               </Card>
             </Link>

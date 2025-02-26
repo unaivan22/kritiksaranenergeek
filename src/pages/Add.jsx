@@ -52,7 +52,7 @@ export default function Add() {
                             <p>Kritik & Saran :</p>
                             <Textarea placeholder='e.g. saya ngantuk boleh tidur waktu jam kerja?' value={message} onChange={(e) => setMessage(e.target.value)}></Textarea>
                         </div>
-                        <Button className='font-semibold text-[4rem] py-12' onClick={handleSubmit}> <Send className='w-12 h-12 mr-6' /> Sent</Button>
+                        <Button className='font-semibold text-[4rem] py-12' onClick={handleSubmit}> <Send className='w-12 h-12 mr-6' /> Send</Button>
                     </div>
                 </CardContent>
             </Card>
