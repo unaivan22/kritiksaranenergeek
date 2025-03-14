@@ -22,7 +22,7 @@ export default function Home() {
     if (loading) return;
     setLoading(true);
     try {
-      const res = await axios.get("/api/get.php", {
+      const res = await axios.get("https://kritiksaran.energeek.id//api/get.php", {
         params: { limit, offset: pageNum * limit, search }
       });
       setMessages(prev => (reset ? res.data : [...prev, ...res.data]));
@@ -35,24 +35,26 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50 relative">
       <div className='bg-[#0277FE] md:h-[360px] h-[430px]'>
         <img className="absolute z-50 top-4 left-4 lg:w-[300px] w-[200px] lg:opacity-100 opacity-20" src="/left.svg" />
         <img className="absolute z-50 top-4 right-4 lg:w-[300px] w-[200px] lg:opacity-100 opacity-20" src="/right.svg" />
         <svg class="w-[80vw] hidden lg:block h-auto absolute left-1/2 transform -translate-x-1/2 top-12" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10,20 Q100,-10 190,20" stroke="black" stroke-width="1" stroke-dasharray="5,5" fill="transparent"/>
         </svg>
-        <div className='grid md:h-[360px] h-[430px] place-items-center container'>
+        <div className='grid md:h-[360px] h-[430px] place-items-center container relative'>
           <div className='flex flex-col gap-4 translate-y-[100px]'>
             <h1 className='text-4xl md:text-[3rem] md:leading-[3rem] font-semibold josefin-sans text-center text-white'>Curated list of kritik dan saran</h1>
             <p className='text-white text-center'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga cumque, tenetur atque dolores quis dolore omnis itaque recusandae magni alias ipsa dolorem totam veniam optio voluptates hic libero quo consequuntur.</p>
-            <Input
-              type="search"
-              placeholder="Cari..."
-              className="rounded-full"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            <div className="sticky top-2">
+              <Input
+                type="search"
+                placeholder="Cari..."
+                className="rounded-full"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
           </div>
         </div>
       </div>
